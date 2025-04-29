@@ -18,7 +18,7 @@ const FighterBarracksConfig_DefendFaction_Variations = {
         villageVariationDefault: {
             phase_0: {
                 loadout: ["badger:piglin_runt"],
-                cap: 35,
+                cap: 100,
                 rate: 10,
                 batch: 6
             },

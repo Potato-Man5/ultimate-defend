@@ -103,7 +103,7 @@ const getTestDeck = (villageId) => {
                 }
             },
             buildables: [
-                { card: "defendPortalSmall", forcePlacement: true },
+                { card: "defendPortalLarge", forcePlacement: true },
                 { card: BUILDABLE_CARD.TOWER_PIGLIN_ARROW, count: 3 },
                 {
                     card: BUILDABLE_CARD.PIGLIN_CRYSTAL,

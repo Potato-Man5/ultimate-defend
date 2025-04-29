@@ -1,6 +1,6 @@
 {
     "badger:player_spawn_service": {
-        "default_mount_archetype": "badger:mount_horse",
+        "default_mount_archetype": "badger:mount_06",
         "min_block_radius": 100,
         "pending_villages": [],
         "player_archetype": "minecraft:player",

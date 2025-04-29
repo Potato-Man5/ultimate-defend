@@ -1,48 +1,67 @@
 const defendUnitCompositions = {
     grunters: {
-        units: [{ amount: 6, unit: PIGLIN_ARCHETYPE.GRUNTER }],
+        units: [{ amount: 30, unit: PIGLIN_ARCHETYPE.GRUNTER }],
         delayUntilSentOut: 15
     },
     gruntersDisrupt: {
         units: [
-            { amount: 6, unit: PIGLIN_ARCHETYPE.GRUNTER },
-            { amount: 1, unit: PIGLIN_ARCHETYPE.DISRUPTOR }
+            { amount: 30, unit: PIGLIN_ARCHETYPE.GRUNTER },
+            { amount: 15, unit: PIGLIN_ARCHETYPE.DISRUPTOR }
         ],
         delayUntilSentOut: 15
     },
     bruisersDisrupt: {
         units: [
+            { amount: 30, unit: PIGLIN_ARCHETYPE.GRUNTER },
+            { amount: 5, unit: PIGLIN_ARCHETYPE.MEDIC },
+            { amount: 30, unit: PIGLIN_ARCHETYPE.RUNT },
+            { amount: 2, unit: PIGLIN_ARCHETYPE.WARBOAR },
+            { amount: 4, unit: PIGLIN_ARCHETYPE.SEEKER },
+            { amount: 8, unit: PIGLIN_ARCHETYPE.GRENADIER },
             { amount: 3, unit: PIGLIN_ARCHETYPE.BRUISER },
-            { amount: 1, unit: PIGLIN_ARCHETYPE.DISRUPTOR }
+            { amount: 6, unit: PIGLIN_ARCHETYPE.DISRUPTOR },
+            { amount: 10, unit: PIGLIN_ARCHETYPE.ENGINEER }
         ],
         delayUntilSentOut: 15
     },
     pyroMD: {
         units: [
-            { amount: 6, unit: PIGLIN_ARCHETYPE.GRUNTER },
-            { amount: 2, unit: PIGLIN_ARCHETYPE.MEDIC }
+            { amount: 26, unit: PIGLIN_ARCHETYPE.GRUNTER },
+            { amount: 10, unit: PIGLIN_ARCHETYPE.MEDIC }
         ],
         delayUntilSentOut: 15
     },
     fireRain: {
         units: [
-            { amount: 5, unit: PIGLIN_ARCHETYPE.GRUNTER },
-            { amount: 1, unit: PIGLIN_ARCHETYPE.ENGINEER }
+            { amount: 30, unit: PIGLIN_ARCHETYPE.GRUNTER },
+            { amount: 5, unit: PIGLIN_ARCHETYPE.MEDIC },
+            { amount: 30, unit: PIGLIN_ARCHETYPE.RUNT },
+            { amount: 2, unit: PIGLIN_ARCHETYPE.WARBOAR },
+            { amount: 4, unit: PIGLIN_ARCHETYPE.SEEKER },
+            { amount: 8, unit: PIGLIN_ARCHETYPE.GRENADIER },
+            { amount: 1, unit: PIGLIN_ARCHETYPE.LAVA_LAUNCHER },
+            { amount: 1, unit: PIGLIN_ARCHETYPE.PIGMADILO },
+            { amount: 1, unit: PIGLIN_ARCHETYPE.PORTAL_GUARD },
+            { amount: 4, unit: PIGLIN_ARCHETYPE.BRUISER },
+            { amount: 4, unit: PIGLIN_ARCHETYPE.DISRUPTOR },
+            { amount: 10, unit: PIGLIN_ARCHETYPE.ENGINEER }
         ],
         delayUntilSentOut: 15
+
     },
     runts: {
-        units: [{ amount: 8, unit: PIGLIN_ARCHETYPE.RUNT }],
+        units: [{ amount: 45, unit: PIGLIN_ARCHETYPE.RUNT }],
         delayUntilSentOut: 15
     },
     runtsButTwelveOfThem: {
-        units: [{ amount: 12, unit: PIGLIN_ARCHETYPE.RUNT }],
+        units: [{ amount: 30, unit: PIGLIN_ARCHETYPE.RUNT }],
         delayUntilSentOut: 15
     },
     maceMD: {
         units: [
-            { amount: 6, unit: PIGLIN_ARCHETYPE.RUNT },
-            { amount: 1, unit: PIGLIN_ARCHETYPE.MEDIC }
+            { amount: 20, unit: PIGLIN_ARCHETYPE.RUNT },
+            { amount: 20, unit: PIGLIN_ARCHETYPE.GRUNTER },
+            { amount: 6, unit: PIGLIN_ARCHETYPE.MEDIC }
         ],
         delayUntilSentOut: 15
     },
@@ -90,7 +109,11 @@ const defendUnitCompositions = {
         delayUntilSentOut: 15
     },
     heavyHitter: {
-        units: [{ amount: 1, unit: PIGLIN_ARCHETYPE.PORTAL_GUARD }],
+        units: [
+            { amount: 1, unit: PIGLIN_ARCHETYPE.PORTAL_GUARD },
+            { amount: 1, unit: PIGLIN_ARCHETYPE.PIGMADILO },
+            { amount: 1, unit: PIGLIN_ARCHETYPE.LAVA_LAUNCHER },
+        ],
         delayUntilSentOut: 15
     },
     bobTheBruisersEnhanced: {
@@ -103,23 +126,23 @@ const defendUnitCompositions = {
     },
     gruntRunts: {
         units: [
-            { amount: 3, unit: PIGLIN_ARCHETYPE.RUNT },
-            { amount: 3, unit: PIGLIN_ARCHETYPE.GRUNTER }
+            { amount: 20, unit: PIGLIN_ARCHETYPE.RUNT },
+            { amount: 20, unit: PIGLIN_ARCHETYPE.GRUNTER }
         ],
         delayUntilSentOut: 15
     },
     despicableRuntsMD: {
         units: [
-            { amount: 4, unit: PIGLIN_ARCHETYPE.RUNT },
-            { amount: 1, unit: PIGLIN_ARCHETYPE.PORTAL_GUARD },
-            { amount: 1, unit: PIGLIN_ARCHETYPE.MEDIC }
+            { amount: 20, unit: PIGLIN_ARCHETYPE.RUNT },
+            { amount: 3, unit: PIGLIN_ARCHETYPE.PORTAL_GUARD },
+            { amount: 4, unit: PIGLIN_ARCHETYPE.MEDIC }
         ],
         delayUntilSentOut: 15
     },
     healyBruisers: {
         units: [
-            { amount: 3, unit: PIGLIN_ARCHETYPE.BRUISER },
-            { amount: 1, unit: PIGLIN_ARCHETYPE.MEDIC }
+            { amount: 38, unit: PIGLIN_ARCHETYPE.BRUISER },
+            { amount: 10, unit: PIGLIN_ARCHETYPE.MEDIC }
         ],
         delayUntilSentOut: 15
     },
@@ -129,22 +152,22 @@ const defendUnitCompositions = {
     },
     blazingClangs: {
         units: [
-            { amount: 4, unit: PIGLIN_ARCHETYPE.GRUNTER },
-            { amount: 1, unit: PIGLIN_ARCHETYPE.DISRUPTOR }
+            { amount: 18, unit: PIGLIN_ARCHETYPE.GRUNTER },
+            { amount: 5, unit: PIGLIN_ARCHETYPE.DISRUPTOR }
         ],
         delayUntilSentOut: 15
     },
     clangyBruisers: {
         units: [
-            { amount: 3, unit: PIGLIN_ARCHETYPE.BRUISER },
-            { amount: 1, unit: PIGLIN_ARCHETYPE.DISRUPTOR }
+            { amount: 50, unit: PIGLIN_ARCHETYPE.BRUISER },
+            { amount: 8, unit: PIGLIN_ARCHETYPE.DISRUPTOR }
         ],
         delayUntilSentOut: 15
     },
     bruiserAndRuntsParty: {
         units: [
-            { amount: 1, unit: PIGLIN_ARCHETYPE.BRUISER },
-            { amount: 4, unit: PIGLIN_ARCHETYPE.RUNT }
+            { amount: 4, unit: PIGLIN_ARCHETYPE.BRUISER },
+            { amount: 10, unit: PIGLIN_ARCHETYPE.RUNT }
         ],
         delayUntilSentOut: 15
     }
@@ -531,7 +554,11 @@ const defendVal = {
                     ["siegeAi", 0]
                 ],
                 spawnedUnits: {
-                    villageVariationA: [{ amount: 1, unit: "badger:piglin_portal_guard" }]
+                    villageVariationA: [
+                        { amount: 1, unit: "badger:piglin_portal_guard" },
+                        { amount: 1, unit: "badger:piglin_magma_boss" }
+
+                    ]
                 }
             },
             phase2: {
@@ -2991,7 +3018,8 @@ const _flavourKeepNearPortalSlot1 = (villageId) => {
             [VILLAGE_VARIATION_B]: { amount: 2, build: "piglinSporeFan" }
         },
         [BASE_SIZE_LARGE]: {
-            [VILLAGE_VARIATION_A]: { amount: 2, build: "piglinSporeFan" }
+            [VILLAGE_VARIATION_A]: { amount: 2, build: "piglinSporeFan" },
+            [VILLAGE_VARIATION_B]: { amount: 1, build: "piglinCrate" }
         }
     }
 
@@ -3028,7 +3056,7 @@ const _flavourKeepNearPortalSlot3 = (villageId) => {
     const dict = {
         [BASE_SIZE_SMALL]: {
             [VILLAGE_VARIATION_A]: { amount: 1, build: "goldMine" },
-            [VILLAGE_VARIATION_B]: { amount: null, build: null }
+            [VILLAGE_VARIATION_B]: { amount: 1, build: "superNetherSpreaderFear" }
         },
         [BASE_SIZE_MEDIUM]: {
             [VILLAGE_VARIATION_A]: { amount: null, build: null },
@@ -3095,14 +3123,15 @@ const _flavourInnerKeepSlot3 = (villageId) => {
     const dict = {
         [BASE_SIZE_SMALL]: {
             [VILLAGE_VARIATION_A]: { amount: 3, build: "piglinTower" },
-            [VILLAGE_VARIATION_B]: { amount: null, build: null }
+            [VILLAGE_VARIATION_B]: { amount: 1, build: "superNetherSpreaderFear" }
         },
         [BASE_SIZE_MEDIUM]: {
             [VILLAGE_VARIATION_A]: { amount: 1, build: "addSiegerBarracks" },
-            [VILLAGE_VARIATION_B]: { amount: null, build: null }
+            [VILLAGE_VARIATION_B]: { amount: 1, build: "superNetherSpreaderFear" }
         },
         [BASE_SIZE_LARGE]: {
-            [VILLAGE_VARIATION_A]: { amount: 1, build: "buildingRegenerator" }
+            [VILLAGE_VARIATION_A]: { amount: 1, build: "buildingRegenerator" },
+            [VILLAGE_VARIATION_B]: { amount: 2, build: "mobCage" }
         }
     }
 
@@ -3169,7 +3198,8 @@ const _flavourInsideKeepWallSlot3 = (villageId) => {
             [VILLAGE_VARIATION_B]: { amount: 2, build: "piglinTower" }
         },
         [BASE_SIZE_LARGE]: {
-            [VILLAGE_VARIATION_A]: { amount: 1, build: "lavaSprayerTower" }
+            [VILLAGE_VARIATION_A]: { amount: 1, build: "lavaSprayerTower" },
+            [VILLAGE_VARIATION_B]: { amount: 2, build: "piglinShieldTower" }
         }
     }
 
