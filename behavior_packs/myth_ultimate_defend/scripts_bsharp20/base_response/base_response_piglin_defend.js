@@ -6,7 +6,10 @@ const defendUnitCompositions = {
     gruntersDisrupt: {
         units: [
             { amount: 30, unit: PIGLIN_ARCHETYPE.GRUNTER },
-            { amount: 15, unit: PIGLIN_ARCHETYPE.DISRUPTOR }
+            { amount: 15, unit: PIGLIN_ARCHETYPE.DISRUPTOR },
+            { amount: 2, unit: PIGLIN_ARCHETYPE.WARBOAR },
+            { amount: 4, unit: PIGLIN_ARCHETYPE.SEEKER },
+            { amount: 8, unit: PIGLIN_ARCHETYPE.GRENADIER },
         ],
         delayUntilSentOut: 15
     },
@@ -15,9 +18,6 @@ const defendUnitCompositions = {
             { amount: 30, unit: PIGLIN_ARCHETYPE.GRUNTER },
             { amount: 5, unit: PIGLIN_ARCHETYPE.MEDIC },
             { amount: 30, unit: PIGLIN_ARCHETYPE.RUNT },
-            { amount: 2, unit: PIGLIN_ARCHETYPE.WARBOAR },
-            { amount: 4, unit: PIGLIN_ARCHETYPE.SEEKER },
-            { amount: 8, unit: PIGLIN_ARCHETYPE.GRENADIER },
             { amount: 3, unit: PIGLIN_ARCHETYPE.BRUISER },
             { amount: 6, unit: PIGLIN_ARCHETYPE.DISRUPTOR },
             { amount: 10, unit: PIGLIN_ARCHETYPE.ENGINEER }
@@ -1586,9 +1586,11 @@ SNIPPET_VillageGenerated("vg_defend", (villageId, _payload) => {
             },
             buildables: [
                 { card: BUILDABLE_CARD.BUILDING_REGENERATOR, placementRules: [PLACEMENT_FAR_FROM_VILLAGE_START, DIRECTION_CARD.southWestWedge] },
-                { card: BUILDABLE_CARD.TOWER_SPORE_FAN, placementRules: [PLACEMENT_CLOSE_TO_VILLAGE_START, DIRECTION_CARD.northEastWedge] },
-                { card: BUILDABLE_CARD.TOWER_SPORE_FAN, placementRules: [PLACEMENT_CLOSE_TO_VILLAGE_START, DIRECTION_CARD.southWestWedge] },
-                { card: BUILDABLE_CARD.BARRACKS_FIGHTER, count: 1, tags: ["barracksdefendHordeDefend0"] }
+                { card: BUILDABLE_CARD.TOWER_SPORE_FAN, placementRules: [PLACEMENT_CLOSE_TO_VILLAGE_START, DIRECTION_CARD.northEastWedge], tags: ["barracksdefendHordeDefend0"] },
+                { card: BUILDABLE_CARD.TOWER_SPORE_FAN, placementRules: [PLACEMENT_CLOSE_TO_VILLAGE_START, DIRECTION_CARD.southWestWedge], tags: ["barracksdefendHordeDefend0"] },
+                { card: BUILDABLE_CARD.BARRACKS_FIGHTER, count: 1, tags: ["barracksdefendHordeDefend0"] },
+                { card: BUILDABLE_CARD.PIGLIN_CRATE, count: 1, tags: ["barracksdefendHordeDefend0"] },
+                { card: BUILDABLE_CARD.MOB_CAGE, count: 1, tags: ["barracksdefendHordeDefend0"] }
             ]
         },
         // The outer keep
@@ -1608,7 +1610,8 @@ SNIPPET_VillageGenerated("vg_defend", (villageId, _payload) => {
                 { card: BUILDABLE_CARD.RANGE_EXTENDER, placementRules: [PLACEMENT_FAR_FROM_VILLAGE_START, DIRECTION_CARD.northEastWedge] },
                 { card: BUILDABLE_CARD.RANGE_EXTENDER, placementRules: [PLACEMENT_FAR_FROM_VILLAGE_START, DIRECTION_CARD.southWestWedge] },
                 { card: BUILDABLE_CARD.BARRACKS_FIGHTER, count: 2, tags: ["barracksdefendHordeDefend0"] },
-                { card: BUILDABLE_CARD.NETHERSPREADER, count: 2 }
+                { card: BUILDABLE_CARD.NETHERSPREADER, count: 2 },
+                { card: BUILDABLE_CARD.NETHERSPREADER_SUPER_FEAR, count: 2 }
             ],
             paths: [
                 // North path
@@ -1669,7 +1672,9 @@ SNIPPET_VillageGenerated("vg_defend", (villageId, _payload) => {
                 { card: "antiSiegeTower", placementRules: [PLACEMENT_CLOSE_TO_DISTRICT_START, DIRECTION_CARD.eastWedge] },
                 { card: BUILDABLE_CARD.BARRACKS_FIGHTER, tags: ["barracksdefendHordeDefend0"] },
                 { card: BUILDABLE_CARD.TOWER_PIGLIN_ARROW, count: 2 },
-                { card: BUILDABLE_CARD.NETHERSPREADER, count: 1 }
+                { card: BUILDABLE_CARD.NETHERSPREADER, count: 1 },
+                { card: BUILDABLE_CARD.TOWER_PIGLIN_THROWER_RUNT, count: 1 },
+                { card: BUILDABLE_CARD.TOWER_PIGLIN_SHIELD, count: 1 }
             ],
             paths: []
         },
@@ -1705,7 +1710,10 @@ SNIPPET_VillageGenerated("vg_defend", (villageId, _payload) => {
                 { card: "antiSiegeTower", placementRules: [PLACEMENT_CLOSE_TO_DISTRICT_START, DIRECTION_CARD.southWedge] },
                 { card: BUILDABLE_CARD.BARRACKS_FIGHTER, tags: ["barracksdefendHordeDefend0"] },
                 { card: BUILDABLE_CARD.TOWER_PIGLIN_ARROW, count: 2 },
-                { card: BUILDABLE_CARD.NETHERSPREADER, count: 1 }
+                { card: BUILDABLE_CARD.NETHERSPREADER, count: 1 },
+                { card: BUILDABLE_CARD.TOWER_PIGLIN_KNOCKBACK, count: 1 },
+                { card: BUILDABLE_CARD.TOWER_PIGLIN_THROWER_WARBOAR, count: 1 },
+                { card: BUILDABLE_CARD.TOWER_PIGLIN_THROWER_PIGMADILO, count: 1 }
             ],
             paths: []
         },
@@ -3011,7 +3019,7 @@ const _flavourKeepNearPortalSlot1 = (villageId) => {
     const dict = {
         [BASE_SIZE_SMALL]: {
             [VILLAGE_VARIATION_A]: { amount: 1, build: "addFighterBarracks" },
-            [VILLAGE_VARIATION_B]: { amount: null, build: null }
+            [VILLAGE_VARIATION_B]: { amount: 1, build: "piglinCrate" }
         },
         [BASE_SIZE_MEDIUM]: {
             [VILLAGE_VARIATION_A]: { amount: 2, build: "piglinSporeFan" },
@@ -3038,7 +3046,7 @@ const _flavourKeepNearPortalSlot2 = (villageId) => {
         },
         [BASE_SIZE_MEDIUM]: {
             [VILLAGE_VARIATION_A]: { amount: 1, build: "rangeExtender" },
-            [VILLAGE_VARIATION_B]: { amount: 1, build: "addFighterBarracks" }
+            [VILLAGE_VARIATION_B]: { amount: 1, build: "superNetherSpreaderFear" }
         },
         [BASE_SIZE_LARGE]: {
             [VILLAGE_VARIATION_A]: { amount: 1, build: "addSiegerBarracks" }
@@ -3059,11 +3067,12 @@ const _flavourKeepNearPortalSlot3 = (villageId) => {
             [VILLAGE_VARIATION_B]: { amount: 1, build: "superNetherSpreaderFear" }
         },
         [BASE_SIZE_MEDIUM]: {
-            [VILLAGE_VARIATION_A]: { amount: null, build: null },
-            [VILLAGE_VARIATION_B]: { amount: null, build: null }
+            [VILLAGE_VARIATION_A]: { amount: 3, build: "pigThrowerTower" },
+            [VILLAGE_VARIATION_B]: { amount: 1, build: "superNetherSpreaderFear" }
         },
         [BASE_SIZE_LARGE]: {
-            [VILLAGE_VARIATION_A]: { amount: 2, build: "piglinTower" }
+            [VILLAGE_VARIATION_A]: { amount: 2, build: "piglinTower" },
+            [VILLAGE_VARIATION_B]: { amount: 1, build: "superNetherSpreaderFear" }
         }
     }
 
@@ -3131,7 +3140,7 @@ const _flavourInnerKeepSlot3 = (villageId) => {
         },
         [BASE_SIZE_LARGE]: {
             [VILLAGE_VARIATION_A]: { amount: 1, build: "buildingRegenerator" },
-            [VILLAGE_VARIATION_B]: { amount: 2, build: "mobCage" }
+            [VILLAGE_VARIATION_B]: { amount: 1, build: "mobCage" }
         }
     }
 
@@ -3169,7 +3178,7 @@ const _flavourInsideKeepWallSlot2 = (villageId) => {
     const dict = {
         [BASE_SIZE_SMALL]: {
             [VILLAGE_VARIATION_A]: { amount: 1, build: "addFighterBarracks" },
-            [VILLAGE_VARIATION_B]: { amount: null, build: null }
+            [VILLAGE_VARIATION_B]: { amount: 1, build: "piglinKnockbackTower" }
         },
         [BASE_SIZE_MEDIUM]: {
             [VILLAGE_VARIATION_A]: { amount: 2, build: "piglinTower" },
@@ -3190,8 +3199,8 @@ const _flavourInsideKeepWallSlot3 = (villageId) => {
 
     const dict = {
         [BASE_SIZE_SMALL]: {
-            [VILLAGE_VARIATION_A]: { amount: null, build: null },
-            [VILLAGE_VARIATION_B]: { amount: null, build: null }
+            [VILLAGE_VARIATION_A]: { amount: 1, build: "pigThrowerTower2" },
+            [VILLAGE_VARIATION_B]: { amount: 1, build: "pigThrowerTower3" }
         },
         [BASE_SIZE_MEDIUM]: {
             [VILLAGE_VARIATION_A]: { amount: null, build: null },
@@ -3281,8 +3290,8 @@ const _flavourInsideOuterWallSlot1 = (villageId) => {
 
     const dict = {
         [BASE_SIZE_SMALL]: {
-            [VILLAGE_VARIATION_A]: { amount: null, build: null },
-            [VILLAGE_VARIATION_B]: { amount: null, build: null }
+            [VILLAGE_VARIATION_A]: { amount: 1, build: "pigThrowerTower" },
+            [VILLAGE_VARIATION_B]: { amount: 1, build: "piglinShieldTower" }
         },
         [BASE_SIZE_MEDIUM]: {
             [VILLAGE_VARIATION_A]: { amount: 2, build: "piglinTower" },
